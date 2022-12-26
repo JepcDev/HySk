@@ -1,6 +1,6 @@
 require('colors');
 
-const { inquirerMenu } = require('./helpers/inquirer');
+const { inquirerMenu, pause } = require('./helpers/inquirer');
 
 // const {mostrarMenu, pausa}  = require('./helpers/messages');
 
@@ -11,11 +11,13 @@ const main = async() => {
 
   let opt = '';
 
+  // Ciclo que mantiene el menu iterativo din que se cierre
   do{
+
     opt = await inquirerMenu();
     console.log({opt});
 
-    if (opt !== '0') await pausa();
+    await pause();
   }while (opt !== '0');
 
 }
