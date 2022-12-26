@@ -49,11 +49,12 @@ const inquirerMenu = async() => {
   console.log('============================='.green);
 
   // aqui va la lista de las preguntas de la app
+  // devuelve el numero o valor de la opcion que elegimos
   const {option}= await inquirer.prompt(optionQestion);
   return option;
 }
 
-// Pone en pausa el prompt
+// Pone en pausa el prompt hasta que presionemos enter
 const pause = async() => {
   const question = [
     {
