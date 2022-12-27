@@ -1,7 +1,7 @@
 require('colors');
 
-const { inquirerMenu, pause } = require('./helpers/inquirer');
-const Tarea = require('./models/tarea');
+const { inquirerMenu, pause, leerInput } = require('./helpers/inquirer');
+// const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
 
 // const {mostrarMenu, pausa}  = require('./helpers/messages');
@@ -9,9 +9,10 @@ const Tareas = require('./models/tareas');
 console.clear();
 
 const main = async() => {
-  console.log('Hola Mundo');
+  // console.log('Hola Mundo');
 
   let opt = '';
+  const tareas = new Tareas();
 
   // Ciclo que mantiene el menu iterativo din que se cierre
   do{
@@ -25,6 +26,16 @@ const main = async() => {
     // Por cada tarea hay un objeto con un identificador uuidv4
     // tareas._listado[tarea.id] = tarea;
     // console.log(tareas)
+    switch (opt) {
+      case '1':
+        //crear oppion
+        const desc = await leerInput('Descripcion:');
+        tareas.crearTarea(desc);
+      break;
+      case'2':
+        console.log(tareas._listado;)
+      break;
+    }
 
     await pause();
   }while (opt !== '0');
