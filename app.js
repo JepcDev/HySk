@@ -1,6 +1,7 @@
 require('colors');
 
 const { inquirerMenu, pause, leerInput } = require('./helpers/inquirer');
+const storeData = require('./helpers/storeData');
 // const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
 
@@ -38,6 +39,8 @@ const main = async() => {
       break;
     }
 
+    // Guarda el listado de tareas en un archivo
+    // storeData(tareas.listadoArr);
     await pause();
   }while (opt !== '0');
 
