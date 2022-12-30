@@ -17,6 +17,7 @@ const main = async() => {
   // Ciclo que mantiene el menu iterativo din que se cierre
   do{
     // aqui se trae el id de la opcion que elejimos
+    // Crea y imprime el menu
     opt = await inquirerMenu();
     console.log({opt});
 
@@ -33,7 +34,7 @@ const main = async() => {
         tareas.crearTarea(desc);
       break;
       case'2':
-        console.log(tareas._listado;)
+        console.log(tareas.listadoArr);
       break;
     }
 
