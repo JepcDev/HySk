@@ -1,7 +1,7 @@
 require('colors');
 
 const { inquirerMenu, pause, leerInput } = require('./helpers/inquirer');
-const storeData = require('./helpers/storeData');
+const {storeData, readData} = require('./helpers/storeData');
 // const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
 
@@ -14,6 +14,15 @@ const main = async() => {
 
   let opt = '';
   const tareas = new Tareas();
+
+  // leer tareas guardadas
+  const tareasDB = readData();
+  if (tareasDB) {
+    // Establecer las tareas
+  }
+
+  await pause();
+
 
   // Ciclo que mantiene el menu iterativo din que se cierre
   do{
