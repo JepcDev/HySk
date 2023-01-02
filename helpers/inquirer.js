@@ -7,7 +7,7 @@ const optionQestion = [
   {
     type : 'list',
     name: 'option',
-    message: '¿What do you want to do?',
+    message: '¿ What do you want to do ?',
     choices: [
       {
         value: '1',

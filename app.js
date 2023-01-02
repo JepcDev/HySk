@@ -28,7 +28,7 @@ const main = async() => {
     // aqui se trae el id de la opcion que elejimos
     // Crea y imprime el menu
     opt = await inquirerMenu();
-    console.log({opt});
+    // console.log({opt});
 
     // const tareas = new Tareas();
     // const tarea = new Tarea('Comprar comida');
@@ -43,12 +43,13 @@ const main = async() => {
         tareas.crearTarea(desc);
       break;
       case'2':
-        console.log(tareas.listadoArr);
+        // console.log(tareas.listadoArr);
+        tareas.ListadoCompleto();
       break;
     }
 
     // Guarda el listado de tareas en un archivo
-    // storeData(tareas.listadoArr);
+    storeData(tareas.listadoArr);
     await pause();
   }while (opt !== '0');
 
