@@ -17,13 +17,12 @@ const main = async() => {
 
   // leer tareas guardadas
   const tareasDB = readData();
-  if (tareasDB) {
+  if (tareasDB) {//Cargar tareas
     // Establecer las tareas
+    tareas.cargarTareasFromArray(tareasDB);
   }
 
-  await pause();
-
-
+  // await pause();
   // Ciclo que mantiene el menu iterativo din que se cierre
   do{
     // aqui se trae el id de la opcion que elejimos
