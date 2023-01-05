@@ -44,7 +44,15 @@ const main = async() => {
       break;
       case'2':
         // console.log(tareas.listadoArr);
-        tareas.ListadoCompleto();
+        tareas.listadoCompleto();
+      break;
+
+      case'3': //listar todas las tareas completadas
+        tareas.listarPendientesCompletadas(true);
+      break
+
+      case'4': //listar todas las tareas pendientes
+        tareas.listarPendientesCompletadas(false);
       break;
     }
 
