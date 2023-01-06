@@ -34,6 +34,14 @@ class Tareas {
     this._listado = {};
   }
 
+  // DEV borrarTarea
+  borrarTarea( id = '' ){
+
+    if (this._listado[id]) {
+      delete this._listado[id];
+    }
+  }
+
   //DEV cargarTareasFromArray
   cargarTareasFromArray( tareas = [] ){
     tareas.forEach( tarea => {

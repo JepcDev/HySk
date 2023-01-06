@@ -89,9 +89,38 @@ const leerInput = async(message)=> {
   return desc;
 }
 
+// DEV listadoTareasBorrar
+const listadoTareasBorrar = async( tareas = [] ) => {
+  // map regresa un nuevo arreglo pero transforma los hijos del array
+  // es decir los valores del arreglo actal los tranforma a lo que yo quiera
+  const choices = tareas.map( (tarea, i) => {
+    const idx = `${i + 1}`.green
+    // lo que retornemos es como van a lusir cada uno de los nuevos items del arreglo
+    return {
+      value: tarea.id,
+      name: `${idx} ${tarea.desc}`
+    }
+  });
+  const preguntas = [
+    {
+      type: 'list',
+      name: 'id',
+      message: 'Borrar',
+      choices
+    }
+  ]
+  const { id } = await inquirer.prompt(preguntas);
+  return id;
+  // {
+  //   value: tareas.id,
+  //   name:`${'1.'.green} Crear tarea`
+  // }
+}
+
 // DEV - exports
 module.exports = {
   inquirerMenu,
   pause,
-  leerInput
+  leerInput,
+  listadoTareasBorrar
 }
