@@ -94,13 +94,19 @@ const listadoTareasBorrar = async( tareas = [] ) => {
   // map regresa un nuevo arreglo pero transforma los hijos del array
   // es decir los valores del arreglo actal los tranforma a lo que yo quiera
   const choices = tareas.map( (tarea, i) => {
-    const idx = `${i + 1}`.green
+    const idx = `${i + 1}.`.green
     // lo que retornemos es como van a lusir cada uno de los nuevos items del arreglo
     return {
       value: tarea.id,
       name: `${idx} ${tarea.desc}`
     }
   });
+
+  choices.unshift({
+    value: '0',
+    name: '0.'.green + ' Cancelar'
+  });
+
   const preguntas = [
     {
       type: 'list',
@@ -117,10 +123,27 @@ const listadoTareasBorrar = async( tareas = [] ) => {
   // }
 }
 
+// DEV confirmation
+// Confirmar si se quiere borrar una tarea
+const confirmation = async(message) =>{
+
+  const question = [
+    {
+      type: 'confirm',
+      name: 'ok',
+      message
+    }
+  ];
+
+  const {ok} = await inquirer.prompt(question);
+  return ok;
+}
+
 // DEV - exports
 module.exports = {
   inquirerMenu,
   pause,
   leerInput,
-  listadoTareasBorrar
+  listadoTareasBorrar,
+  confirmation
 }
