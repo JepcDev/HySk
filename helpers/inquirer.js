@@ -139,11 +139,39 @@ const confirmation = async(message) =>{
   return ok;
 }
 
+// DEV mostrarListadoCheckList
+const mostrarListadoCheckList = async( tareas = [] ) => {
+  // map regresa un nuevo arreglo pero transforma los hijos del array
+  // es decir los valores del arreglo actal los tranforma a lo que yo quiera
+  const choices = tareas.map( (tarea, i) => {
+    const idx = `${i + 1}.`.green
+    // lo que retornemos es como van a lusir cada uno de los nuevos items del arreglo
+    return {
+      value: tarea.id,
+      name: `${idx} ${tarea.desc}`,
+      checked:(tarea.completadoEn)? true:false
+    }
+  });
+
+  // regresa un lista de tareas completadas
+  const pregunta = [
+    {
+      type: 'checkbox',
+      name: 'ids',
+      message: 'Selecciones',
+      choices
+    }
+  ]
+  const { ids } = await inquirer.prompt(pregunta);
+  return ids;
+}
+
 // DEV - exports
 module.exports = {
   inquirerMenu,
   pause,
   leerInput,
   listadoTareasBorrar,
-  confirmation
+  confirmation,
+  mostrarListadoCheckList
 }
